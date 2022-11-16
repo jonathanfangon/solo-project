@@ -1,5 +1,12 @@
 const something = {
-    message : 'Wazzup'
+    message: 'Wazzup'
+}
+
+const somethingElse = {
+    ...something,
+    isAwesome: 'facts',
+    message: 'Yurr'
 }
 
 console.log(something);
+console.log(somethingElse);
