@@ -1,12 +1,4 @@
-const something = {
-    message: 'Wazzup'
-}
+import { render } from 'react-dom';
+import App from './components/App';
 
-const somethingElse = {
-    ...something,
-    isAwesome: 'facts',
-    message: 'Yurr'
-}
-
-console.log(something);
-console.log(somethingElse);
+render(<App/>, document.getElementById('root'));
