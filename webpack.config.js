@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 
 let mode = 'development';
 
@@ -6,6 +7,16 @@ if(process.env.NODE_ENV === 'production') mode = 'production';
 
 module.exports = {
     mode: mode,
+
+    entry: [
+        './src/index.js'
+    ],
+
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
+        filename: 'bundle.js',
+    },
 
     module: {
         rules: [
@@ -41,6 +52,13 @@ module.exports = {
         static: "./dist",
         hot: true,
         open: true,
+        static: {
+            // match the output path
+            directory: path.resolve(__dirname, 'dist'),
+            // match the output 'publicPath'
+            publicPath: '/',
+        },
+        headers: { 'Access-Control-Allow-Origin': '*' },
         proxy: {
             '/api/**': {
               target: 'http://localhost:3000/',
