@@ -1,5 +1,8 @@
 const express = require('express');
+// const mongoose = require('mongoose');
 const path = require('path');
+
+// mongoose.connect('mongodb+srv://jonathan:<JMariano02>@cars.ncyrhj9.mongodb.net/?retryWrites=true&w=majority');
 
 const app = express();
 

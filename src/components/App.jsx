@@ -1,20 +1,18 @@
-import '../styles/index.scss';
-import Recipes from './Recipes';
+import React, { Component } from 'react';
 
-import React from 'react';
+class App extends Component{
+    constructor(props) {
+        super(props);
+    }
 
-const App = () => {
-    return (
-        <>
-          <section className='hero'></section>
-          <main>
-            <section>
-                <h1>Oh Hai, React</h1>
-                <Recipes/>
-            </section>
-          </main>
-        </>
-    )
+    render() {
+        return (
+            <h1>Enter Your Information</h1>,
+            <div id='inputs'>
+                <input type="text" placeholder='Budget'/>
+            </div>
+        );
+    }
 }
 
 export default App;

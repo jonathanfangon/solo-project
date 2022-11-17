@@ -1,4 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 let mode = 'development';
@@ -7,6 +9,7 @@ if(process.env.NODE_ENV === 'production') mode = 'production';
 
 module.exports = {
     mode: mode,
+    target: "web",
 
     entry: [
         './src/index.js'
@@ -34,12 +37,21 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
+                    options : {
+                        presets : ['@babel/preset-env', '@babel/preset-react']
+                    }
                 }
             }
         ]
     },
 
-    plugins: [new MiniCssExtractPlugin()],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
+    ],
 
     resolve: {
         extensions: [".js", ".jsx", ],
@@ -49,7 +61,7 @@ module.exports = {
     devServer: {
         host: "localhost",
         port: 8080,
-        static: "./dist",
+        // static: "./dist",
         hot: true,
         open: true,
         static: {
