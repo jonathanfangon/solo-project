@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', 
     carsController.getCarData,
     (req, res) => {
-        return res.status(200).json(res.locals.camry)
+        return res.send(res.locals.camry)
     }
 );
 

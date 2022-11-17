@@ -13,7 +13,7 @@ class App extends Component{
     render() {
         return (
             <div id='main-cont'>
-                <h1>Enter Your Information</h1>
+                <h1>Enter Your Information:</h1>
                 <div id='inputs'>
                   <input type="text" placeholder='Budget'/>
                 <input type="text" placeholder='Drivetrain (AWD, RWD, FWD)'/>

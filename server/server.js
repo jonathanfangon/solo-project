@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 // const mysql = require('mysql');
+const apiRouter = require('./routes/api');
+const request = require('request');
 const app = express();
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../src')));
@@ -9,11 +11,26 @@ app.use(express.static(path.resolve(__dirname, '../src')));
 const PORT = process.env.PORT || 3000;
 
 //route handler
-const apiRouter = require('./routes/api');
+
 
 // app.use('/api', apiRouter);
-app.get('/api', (req, res) => {
-    res.send('Welcome to my backend!');
+
+
+
+app.get('/api', async (req, res) => {
+    var model = 'camry'
+    request.get({
+        url: 'https://api.api-ninjas.com/v1/cars?model=' + model,
+        headers: {
+            'X-Api-Key': 'qayVFSGHKPuHJOalrLsPKg==VRAAFI6T17RNZoYp'
+        },
+    }, function(error, response, body) {
+        if(error) return console.error('Request failed:', error);
+        else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
+        else res.send(body);
+    });
+    // res.send(res.locals.camry);
+    // res.send('Welcome to my backend!');
 });
 
 //catch-all
