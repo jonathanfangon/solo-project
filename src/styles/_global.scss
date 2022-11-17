@@ -3,11 +3,18 @@ body {
     margin: 0;
     background-color: variables.$bg;
     color: var(--text);
+    margin: 20px;
 }
 
-header {
+#main-header{
     display: flex;
     justify-content: center;
     font-size: 40px;
     font-weight: bold;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
