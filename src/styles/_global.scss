@@ -3,18 +3,41 @@ body {
     margin: 0;
     background-color: variables.$bg;
     color: var(--text);
-    margin: 20px;
+
+    // display: grid;
+    // grid-template-rows: 100px auto;
 }
 
 #main-header{
     display: flex;
     justify-content: center;
-    font-size: 40px;
+    align-items: center;
+    font-size: 50px;
     font-weight: bold;
+    background-color: #424242;
+    height: 70px;
 }
 
-#root {
+// #root {
+//     display: flex;
+//     justify-content: center;
+//     text-align: center;
+// }
+
+#main-cont{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
+}
+
+.state-working {
+    color: blueviolet;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

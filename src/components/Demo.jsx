@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class App extends Component{
+class Demo extends Component{
     constructor(props) {
         super(props);
 
@@ -18,21 +18,18 @@ class App extends Component{
  
     render() {
         return (
-            <div id='inputs'>
-                <h1>Enter Your Information</h1>
-                <input type="text" placeholder='Budget'/>
+            <div>
                 <button onClick={this.handleClick}>
                   {this.state.stateWorking ? 'ON' : 'OFF'}
                 </button>
-                {/* {this.stateWorking === 'ON' && (
+                {this.state.stateWorking && (
                     <div>
-                        <h2>State Working</h2>
+                        <h2 className='state-working'>State Working!</h2>
                     </div>
-                )} */}
-                {this.stateWorking ? <p>State Working!</p> : null}
+                )}
             </div>
         );
     }
 }
 
-export default App;
+export default Demo;
