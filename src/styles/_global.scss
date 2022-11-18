@@ -36,8 +36,24 @@ body {
     color: blueviolet;
 }
 
-#inputs {
+// #inputs {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
+
+#input-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    // text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+img {
+    max-width: 350px;
+    border: solid 2px black;
 }

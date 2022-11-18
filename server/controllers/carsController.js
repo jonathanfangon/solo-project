@@ -10,9 +10,11 @@ carsController.getCarData = (req, res, next) => {
 //         .then((data) => console.log(data))
 //         .catch((err) => next(console.log(err)))
 
-    var model = 'camry'
+    const model = '911 gt3 rs';
+    const make = 'porsche';
+    const year = '2019';
     request.get({
-        url: 'https://api.api-ninjas.com/v1/cars?model=' + model,
+        url: 'https://api.api-ninjas.com/v1/cars?model=' + model + '&make=' + make + '&year=' + year,
         headers: {
             'X-Api-Key': 'qayVFSGHKPuHJOalrLsPKg==VRAAFI6T17RNZoYp'
         },

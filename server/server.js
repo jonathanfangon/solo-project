@@ -18,16 +18,18 @@ const PORT = process.env.PORT || 3000;
 
 
 app.get('/api', async (req, res) => {
-    var model = 'camry'
+    const model = '911 gt3 rs';
+    const make = 'porsche';
+    const year = '2019';
     request.get({
-        url: 'https://api.api-ninjas.com/v1/cars?model=' + model,
+        url: 'https://api.api-ninjas.com/v1/cars?model=' + model+ '&make=' + make + '&year=' + year,
         headers: {
             'X-Api-Key': 'qayVFSGHKPuHJOalrLsPKg==VRAAFI6T17RNZoYp'
         },
     }, function(error, response, body) {
         if(error) return console.error('Request failed:', error);
         else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
-        else res.send(body);
+        else res.send(`Here is just some info on a 2019 Porsche 911 GT3 RS: \n ${body}`);
     });
     // res.send(res.locals.camry);
     // res.send('Welcome to my backend!');
